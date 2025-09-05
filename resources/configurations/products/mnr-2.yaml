@@ -1,0 +1,13 @@
+apiVersion: codefresh.io/v1beta2
+kind: Product
+metadata:
+  name: mnr-2
+spec:
+  promotionFlows:
+    - name: pr-f-mnr-2
+      gitTriggerSelectors:
+        - key: commitMessage
+          operator: In
+          values:
+            - test
+  concurrency: queue
