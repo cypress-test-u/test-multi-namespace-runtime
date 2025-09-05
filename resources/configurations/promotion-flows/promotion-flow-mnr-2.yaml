@@ -9,7 +9,7 @@ spec:
       dependsOn:
         - dev-2
       policy:
-        action: pr
+        action: commit
         preAction: slack-start-promotion-tests
         postAction: slack-finish-promotion-tests
     - environment: stage-2
