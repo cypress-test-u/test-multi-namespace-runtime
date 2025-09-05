@@ -1,0 +1,28 @@
+apiVersion: codefresh.io/v1beta1
+kind: PromotionFlow
+metadata:
+  name: pr-f-mnr-2
+spec:
+  triggerEnvironment: dev-2
+  steps:
+    - environment: test-2
+      dependsOn:
+        - dev-2
+      policy:
+        action: pr
+        preAction: slack-start-promotion-tests
+        postAction: slack-finish-promotion-tests
+    - environment: stage-2
+      dependsOn:
+        - test-2
+      policy:
+        action: none
+        preAction: slack-start-promotion-tests
+        postAction: slack-finish-promotion-tests
+    - environment: prod-2
+      dependsOn:
+        - stage-2
+      policy:
+        action: pr
+        preAction: slack-start-promotion-tests
+        postAction: slack-finish-promotion-tests
