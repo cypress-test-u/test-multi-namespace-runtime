@@ -15,7 +15,7 @@ spec:
   source:
     directory:
       include: >-
-        {all-runtimes-all-clusters/**/*.yaml,all-runtimes-all-clusters/*.yaml,configurations/**/*.yaml,control-planes/**/*.yaml,control-planes/*.yaml,mnr-2/mnr-2.yaml,runtimes/mnr-2/**/*.yaml,runtimes/mnr-2/*.yaml}
+        {all-runtimes-all-clusters/**/*.yaml,all-runtimes-all-clusters/*.yaml,configurations/**/*.yaml,control-planes/**/*.yaml,control-planes/*.yaml,mnr-2/mnr-2-gs.yaml,mnr-2/mnr-2.yaml,runtimes/mnr-2/**/*.yaml,runtimes/mnr-2/*.yaml}
       recurse: true
     path: resources
     repoURL: https://github.com/cypress-test-u/test-multi-namespace-runtime.git
