@@ -1,0 +1,22 @@
+apiVersion: codefresh.io/v1beta1
+kind: PromotionFlow
+metadata:
+  name: pr-f-mnr-1
+spec:
+  triggerEnvironment: dev
+  steps:
+    - environment: test
+      dependsOn:
+        - dev
+      policy:
+        action: commit
+    - environment: stage
+      dependsOn:
+        - test
+      policy:
+        action: commit
+    - environment: prod
+      dependsOn:
+        - stage
+      policy:
+        action: pr
