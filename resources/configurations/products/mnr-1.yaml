@@ -9,5 +9,5 @@ spec:
         - key: commitMessage
           operator: In
           values:
-            - test
+            - value-not-used
   concurrency: queue
