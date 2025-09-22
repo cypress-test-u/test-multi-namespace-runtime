@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: test-mnr-2-gs
+  labels:
+    codefresh.io/entity: 'git-source'
+    codefresh.io/internal: 'false'
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  project: cf-git-sources
+  sources:
+    - repoURL: https://github.com/cypress-test-u/promotion-flow-apps-examples-clone.git
+      path: .
+      targetRevision: test-mnr-2-2.9
+      directory:
+        include: '*'
+        exclude: ''
+        recurse: true
+  destination:
+    namespace: mnr-2
+    server: https://kubernetes.default.svc
+  syncPolicy:
+    automated:
+      allowEmpty: true
+      prune: true
+      selfHeal: true
