@@ -1,0 +1,24 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: mnr-1
+  labels:
+    codefresh.io/entity: runtime
+    codefresh.io/internal: 'true'
+spec:
+  project: cf-runtime-app-project
+  source:
+    repoURL: https://github.com/cypress-test-u/test-multi-namespace-runtime.git
+    targetRevision: HEAD
+    path: resources/mnr-1/chart
+    helm:
+      releaseName: mnr-1
+      skipCrds: true
+  destination:
+    namespace: mnr-1
+    server: https://kubernetes.default.svc
+  syncPolicy:
+    automated:
+      allowEmpty: true
+      prune: true
+      selfHeal: true
