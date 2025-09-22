@@ -6,14 +6,13 @@ metadata:
     codefresh.io/entity: runtime
     codefresh.io/internal: 'true'
 spec:
-  project: cf-runtime-app-project
+  project: default
   source:
     repoURL: https://github.com/cypress-test-u/test-multi-namespace-runtime.git
     targetRevision: HEAD
     path: resources/mnr-1/chart
     helm:
       releaseName: mnr-1
-      skipCrds: true
   destination:
     namespace: mnr-1
     server: https://kubernetes.default.svc

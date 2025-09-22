@@ -9,7 +9,7 @@ gitops-runtime:
       params:
         application.namespaces: ''
     crds:
-      install: false
+      install: true
     createClusterRoles: false
   argo-events:
     controller:
@@ -17,13 +17,13 @@ gitops-runtime:
         namespaced: true
   argo-rollouts:
     enabled: false
-    installCRDs: false
+    installCRDs: true
   argo-workflows:
     controller:
       clusterWorkflowTemplates:
         enabled: false
     crds:
-      install: false
+      install: true
     createAggregateRoles: false
     server:
       clusterWorkflowTemplates:
@@ -31,7 +31,7 @@ gitops-runtime:
     singleNamespace: true
   gitops-operator:
     crds:
-      install: false
+      install: true
     env:
       GITOPS_OPERATOR_VERSION: 0.10.1
   global:
@@ -59,6 +59,3 @@ gitops-runtime:
     enabled: false
   tunnel-client:
     enabled: false
-  installer:
-    skipValidation: true
-    skipUsageValidation: true
